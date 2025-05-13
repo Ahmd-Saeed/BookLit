@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Welcome
+{% endblock %}
+
+{% block main %}
+
+    <!-- Hero -->
+    <section class="hero section-padding">
+        <div class="container-fluid py-5">
+            <div>
+                <div class="row hero py-5">
+                    <div class="col-sm-4 mx-auto glass1 glass">
+                        <h1>Reading, </h1>
+                        <h1>Simplified.</h1>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"/>
+                            </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Features -->
+    <section class="achieve">
+        <div class="container-fluid">
+            <div class="row  py-2">
+                <div class="col-md-4 col-sm-12 d-none d-md-block glass mx-auto books-pic">
+                    <img class="medal" src="{{ url_for('static', filename='achieve.png') }}" alt="A 3d image of a medal and a certificate">
+                </div>
+                <div class="col-md-7 col-sm-12 mx-auto glass books-text">
+                    <h1 class="py-3">Record Your Journey.</h1>
+                    <h4>Keep track of how far you are in a book, and gain milestones and achievements along the way.</h4>
+                </div>
+
+                <div class="col-md-7 glass mt-5">
+                    <h1>Organized Reading Lists</h1>
+                    <h4 class="py-3">Whether you're planning your next read, currently engrossed in a book, or reflecting on your finished reads, our system has you covered.</h4>
+                </div>
+                <div class="col-md-4 glass mx-auto d-none d-md-block">
+                    <img class="medal" src="{{ url_for('static', filename='list.png') }}" alt="A 3d image of a to-do list">
+                </div>
+
+                <div class="col-md-4 col-sm-12 d-none d-md-block glass mx-auto books-pic mt-5">
+                    <img class="dash" src="{{ url_for('static', filename='dashboard.png') }}" alt="A 3d image of a medal and a certificate">
+                </div>
+                <div class="col-md-7 col-sm-12 mx-auto glass books-text mt-5">
+                    <h1 class="py-3">Personal Profile.</h1>
+                    <h4>Gain the ablility to look at your books, achievements, and ratings, all at a glance.</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--sign up-->
+    <section class="signup" id="register">
+        <div class="container-fluid">
+            <div class="row  py-2">
+                <div class="col-sm-8 offset-2 offset--2 glass">
+                    <h1 class=>Ready? Sign Up.</h1>
+                    <form action="/register" method="post">
+                        <div class="form-group m-2">
+                          <input type="text" class="form-control"  name ="username" placeholder="username">
+                        </div>
+                        <div class="form-group m-2">
+                            <input type="password" class="form-control" name ="password" placeholder="Password">
+                        </div>
+                        <div class="form-group m-2">
+                            <input type="confirmation" class="form-control" name ="confirmation" placeholder="Confirm Password">
+                          </div>
+                        <button type="submit" class="btn btn-primary mt-2" type="submit">Register</button>
+                      </form>
+                      <p class="mt-2">Already Have An Account? <a href="/login">Log In.</a></p>
+                </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

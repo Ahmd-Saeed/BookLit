@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Books
+{% endblock %}
+
+{% block main %}
+<section class="add section-padding text-center">
+  <div class="container-fluid py-5">
+      <div>
+          <div class="row py-5">
+              <div class="col-sm-12 mx-auto glass">
+                  <h1>Update Book Progress</h1>
+              <div class="py-3">
+                  <form action="/update" method="post">
+                      <div class="mb-1">
+                        <select name="bookName">
+                            <option disabled selected value="">Book Name</option>
+                            {% for book in currentBooks %}
+                            <option  value='{{book["name"]}}'>{{book["name"]}}</option>
+                            {% endfor %}
+                        </select>
+                      </div>
+                      <div>
+                          <input class="form-control mx-auto w-auto" name="readpages" placeholder="Update read pages" type="text">
+                      </div>
+                      <button class="btn btn-primary" type="submit">Update</button>
+                  </form>
+              </div>
+
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+{% endblock %}
+

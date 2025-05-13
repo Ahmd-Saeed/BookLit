@@ -1,0 +1,41 @@
+
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Books
+{% endblock %}
+
+{% block main %}
+<section class="add section-padding text-center">
+  <div class="container-fluid py-5">
+      <div>
+          <div class="row py-5">
+              <div class="col-sm-12 mx-auto glass">
+                  <h1>Add a Book</h1>
+              <div class="py-3">
+                  <form action="/add" method="post">
+                      <div class="mb-1">
+                          <input  autofocus required class="form-control mx-auto w-auto" name="bookName" placeholder="Name" type="text">
+                      </div>
+                      <div class="mb-1">
+                          <input class="form-control mx-auto w-auto" name="author" placeholder="Author" type="text">
+                      </div>
+                      <div class="mb-1">
+                        <input class="form-control mx-auto w-auto" name="genre" placeholder="Genre" type="text">
+                    </div>
+                    <div class="mb-1">
+                      <input class="form-control mx-auto w-auto" name="fullpages" placeholder="No. of Pages" type="text">
+                  </div>
+                  <div class="mb-1">
+                    <input class="form-control mx-auto w-auto" name="readpages" placeholder="No. of pages read" type="text">
+                </div>
+                      <button class="btn btn-primary" type="submit">Add</button>
+                  </form>
+              </div>
+
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <div class="container-fluid py-4 ">
+        <section class="py-5 row intro mt-0 m-2 main ">
+            <div class="col-sm-12 col-md-6 glass p-4">
+                <h1>Hello, {{username}}.</h1>
+            </div>
+        </section>
+        <section class=" row filter m-2">
+            <div class="col-sm-12 col-md-8">
+
+                <p>Filter By:</p>
+                <button>Books (A-Z)</button>
+                <button>Books (Z-A)</button><span> | </span>
+                <a href="/remove">
+                    <button>Remove a Book</button>
+                </a>
+            </div>
+        </section>
+        {% if booknum ==  [{'books': 0}] %}
+        <section class=" row books m-2">
+            <div class="col-sm-12 col-md-8 p-4 glass">
+                <h1>Nothing Read Yet?</h1>
+                <a href="/add">
+                    <button>Add a Book</button>
+                  </a>
+        </section>
+        {% else %}
+        {% for book in books %}
+        <section class=" row books my-2">
+            <div class="col-sm-12 col-md-8 p-5 glass">
+                <div>
+                    <p>Name: {{book["name"]}}</p>
+                    <p>Author: {{book["author"]}}</p>
+                    <p>Genre: {{book["genre"]}}</p>
+                    {% if book["favorite"] == "yes" %}
+                    <p>Marked As Favorite</p>
+                    {% endif %}
+
+                </div>
+                <div>
+                    {% set percent = (book["readpages"] / book["fullpages"] * 100) | round %}
+
+                    <div class="progress" role="progressbar" aria-label="Warning example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+
+                        <div class="progress-bar text-bg-primary" style="width: 100%">{{percent}}%</div>
+                      </div>
+                    <p>Pages Read: {{book["readpages"]}} / {{book["fullpages"]}}</p>
+                    <a href="/update">
+                        <button>Update Pages</button>
+                    </a>
+                    <a href="/fav">
+                        <button>Set as favorite</button>
+                    </a>
+                </div>
+
+            </div>
+            {% endfor %}
+        </section>
+        {% endif %}
+    </div>
+{% endblock %}
